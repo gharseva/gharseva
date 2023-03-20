@@ -137,6 +137,7 @@ router.post("/mbooking", async (req, res) => {
     onservicedate,
     typeofcater,
     typeofvehicle,
+    typeofproblem,
   } = req.body;
   const newPayment = new mechanicsSchema({
     fullname,
@@ -146,6 +147,7 @@ router.post("/mbooking", async (req, res) => {
     onservicedate,
     typeofcater,
     typeofvehicle,
+    typeofproblem,
   });
 
   const savedPaymentDetailsRes = await newPayment.save();

@@ -7,6 +7,7 @@ const findOrCreate = require("mongoose-findorcreate");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
 const MongoDBStore = require("connect-mongodb-session")(session); // add this package to store the user session id automatically on mongodb
 // check on your db, you will have another collection (next to people) which is 'mySessions'
 const loginRouter = require("./routes/loginRoutes");
@@ -25,6 +26,15 @@ mongoose.Promise = global.Promise;
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
+    store: new MongoDBStore({
+      uri: "mongodb+srv://ajharul:ajharul1234@cluster0.kzclar0.mongodb.net/?retryWrites=true&w=majority",
+      collection: "mySessions",
+    }),
+    cookie: {
+      maxAge: 30 * 24 * 60 * 60 * 1000, // this is when our cookies will expired and the session will not be valid anymore (user will be log out)
+      sameSite: "none",
+      secure: true, // to turn on just in production
+    },
     resave: false,
     saveUninitialized: false,
   })
@@ -73,9 +83,12 @@ app.use(
   session({
     secret: "a1s2d3f4g5h6",
     name: "session-id", // cookies name to be put in "key" field in postman
-    store: mongoDBstore,
+    store: new MongoDBStore({
+      uri: "mongodb+srv://ajharul:ajharul1234@cluster0.kzclar0.mongodb.net/?retryWrites=true&w=majority",
+      collection: "mySessions",
+    }),
     cookie: {
-      maxAge: MAX_AGE, // this is when our cookies will expired and the session will not be valid anymore (user will be log out)
+      maxAge: 30 * 24 * 60 * 60 * 1000, // this is when our cookies will expired and the session will not be valid anymore (user will be log out)
       sameSite: "none",
       secure: true, // to turn on just in production
     },

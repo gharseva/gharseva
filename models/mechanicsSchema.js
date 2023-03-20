@@ -29,6 +29,10 @@ const mechanicsSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  typeofproblem: {
+    type: String,
+    required: false,
+  },
   date: {
     type: Date,
     default: Date.now,

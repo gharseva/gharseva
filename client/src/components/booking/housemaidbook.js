@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import SoapIcon from "@mui/icons-material/Soap";
 
 const Housemaidsbook = () => {
+  const userContext = useContext(UserContext);
+  const [fname, setFname] = useState();
   const [serviceDate, setserviceDate] = useState();
   const [typeAddress, settypeAddress] = useState();
+  const [userphoneno, setUserPhoneno] = useState();
   const [durationofWork, setdurationofWork] = useState();
 
   const handleChange = (event) => {
@@ -17,6 +20,14 @@ const Housemaidsbook = () => {
   const handleChange2 = (event) => {
     const currentValue2 = event.target.value;
     setdurationofWork(currentValue2);
+  };
+  const handleChange3 = (event) => {
+    const currentValue3 = event.target.value;
+    setFname(currentValue3);
+  };
+  const handleChange4 = (event) => {
+    const currentValue4 = event.target.value;
+    setUserPhoneno(currentValue4);
   };
 
   const handleSubmit = async () => {
@@ -35,7 +46,7 @@ const Housemaidsbook = () => {
       }),
     });
     await res.json();
-    alert("YOur order has been booked");
+    alert("Your order has been booked");
   };
   return (
     <>
@@ -58,9 +69,13 @@ const Housemaidsbook = () => {
             <div className="form-div">
               <form onSubmit={handleSubmit}>
                 <input value={"car"} id="typeofvehicle" hidden></input>
-                <input value={"a@gmail.com"} id="email" hidden></input>
+                <input value={userContext.email} id="email" hidden></input>
                 <h5>Full name</h5>
-                <input value={"Ajharul"} id="fullname"></input>
+                <input
+                  value={fname}
+                  onChange={handleChange3}
+                  id="fullname"
+                ></input>
                 <br />
                 <h5>Address </h5>
                 <input
@@ -70,7 +85,11 @@ const Housemaidsbook = () => {
                 />
                 <br />
                 <h5>Phone Number </h5>
-                <input value={"8471987717"} id="phoneno" />
+                <input
+                  value={userphoneno}
+                  onChange={handleChange4}
+                  id="phoneno"
+                />
                 <br />
                 <h5>Duration of Work </h5>
                 <input

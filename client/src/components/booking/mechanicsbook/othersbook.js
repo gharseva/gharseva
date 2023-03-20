@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 
 const Othersbook = () => {
+  const userContext = useContext(UserContext);
+  const [fname, setFname] = useState();
   const [serviceDate, setserviceDate] = useState();
   const [typeAddress, settypeAddress] = useState();
-  const [othertypevehi, setothertypevehi] = useState();
+  const [userphoneno, setUserPhoneno] = useState();
+  const [typeofproblem, settypeodproblem] = useState();
 
   const handleChange = (event) => {
     const currentValue = event.target.value;
@@ -14,9 +17,21 @@ const Othersbook = () => {
     const currentValue1 = event.target.value;
     settypeAddress(currentValue1);
   };
-  const handleChange2 = (event) => {
+  const handleChange5 = (event) => {
     const currentValue2 = event.target.value;
     setothertypevehi(currentValue2);
+  };
+  const handleChange2 = (event) => {
+    const currentValue2 = event.target.value;
+    setFname(currentValue2);
+  };
+  const handleChange3 = (event) => {
+    const currentValue3 = event.target.value;
+    setUserPhoneno(currentValue3);
+  };
+  const handleChange4 = (event) => {
+    const currentValue4 = event.target.value;
+    settypeodproblem(currentValue4);
   };
 
   const handleSubmit = async () => {
@@ -57,9 +72,13 @@ const Othersbook = () => {
             <h2>Customers Information</h2>
             <div className="form-div">
               <form onSubmit={handleSubmit}>
-                <input value={"a@gmail.com"} id="email" hidden></input>
+                <input value={userContext.email} id="email" hidden></input>
                 <h5>Full name</h5>
-                <input value={"Ajharul"} id="fullname"></input>
+                <input
+                  value={fname}
+                  onChange={handleChange2}
+                  id="fullname"
+                ></input>
                 <br />
                 <h5>Address </h5>
                 <input
@@ -69,12 +88,16 @@ const Othersbook = () => {
                 />
                 <br />
                 <h5>Phone Number </h5>
-                <input value={"8471987717"} id="phoneno" />
+                <input
+                  value={userphoneno}
+                  onChange={handleChange3}
+                  id="phoneno"
+                />
                 <br />
                 <h5>Type of Vehicle </h5>
                 <input
                   value={othertypevehi}
-                  onChange={handleChange2}
+                  onChange={handleChange5}
                   id="typeofvehicle"
                 ></input>
                 <h5>Date on which you want the service </h5>

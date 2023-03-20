@@ -4,7 +4,7 @@
   "description": "boilerplat for mongo node and react",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "gsambrotta",
@@ -24,6 +24,7 @@
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "passport-local-mongoose": "^7.1.2"
   }
 }

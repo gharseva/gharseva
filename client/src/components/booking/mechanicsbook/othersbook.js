@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import { UserContext } from "../../../App";
 
 const Othersbook = () => {
   const userContext = useContext(UserContext);
@@ -8,6 +9,7 @@ const Othersbook = () => {
   const [typeAddress, settypeAddress] = useState();
   const [userphoneno, setUserPhoneno] = useState();
   const [typeofproblem, settypeodproblem] = useState();
+  const [othertypevehi, setothertypevehi] = useState();
 
   const handleChange = (event) => {
     const currentValue = event.target.value;

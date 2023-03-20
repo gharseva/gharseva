@@ -1,0 +1,119 @@
+.mechanic-main-div {
+  margin: 1% 20% 5% 20%;
+  font-family: poppins;
+}
+.mech-title {
+  font-size: 45px;
+  position: relative;
+  display: inline-block;
+  border-bottom: 10px solid #8956f1;
+}
+.mech-type-div {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-top: 2%;
+}
+.car-mech {
+  flex: 1;
+  position: relative;
+  border-radius: 10px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+}
+.car-mech-img {
+  height: 250px;
+  width: 100%;
+  border-radius: 10px;
+}
+.overlay-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: saturate(180%) blur(6px); /* add a semi-transparent black background */
+  color: #fff; /* set the text color to white */
+  padding: 5px 15px 5px 15px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.mech-book-button {
+  background-color: #8956f1;
+  margin: 0;
+  padding: 10px;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.4);
+}
+.mech-title-card {
+  text-shadow: 4px 8px 8px rgba(0, 0, 0, 1);
+}
+.mech-verified-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #f7f7f7;
+  font-family: poppins;
+  padding: 4% 20% 4% 20%;
+  margin: 0 0 5% 0;
+}
+.img-mech {
+  height: 80px;
+  background: linear-gradient(to right, #fff 0%, #fff 100%);
+  border-radius: 50px;
+  padding: 10px;
+}
+.mech-verified-sub-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+}
+@media only screen and (max-width: 600px) {
+  .mechanic-main-div {
+    margin: 3% 2% 5% 2%;
+    font-family: poppins;
+  }
+  .mech-title {
+    font-size: 33px;
+    position: relative;
+    display: inline-block;
+    border-bottom: 10px solid #8956f1;
+  }
+  .car-mech {
+    flex: 1;
+    position: relative;
+    border-radius: 10px;
+    border: 5px solid rgba(0, 0, 0, 0.2);
+  }
+  .mech-type-div {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 2%;
+  }
+  .mech-verified-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f7f7f7;
+    font-family: poppins;
+    padding: 5% 2% 5% 2%;
+    margin: 5% 0 5% 0;
+    gap: 30px;
+  }
+  .mech-verified-sub-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .mech-verified-sub-div h3 {
+    margin: 0;
+  }
+}

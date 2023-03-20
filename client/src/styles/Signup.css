@@ -1,0 +1,10 @@
+.signup-cover {
+  flex: 1 1 30%;
+  background-image: url("https://img.freepik.com/free-vector/forgot-password-concept-illustration_114360-1123.jpg?w=826&t=st=1678785046~exp=1678785646~hmac=a892773ee65eb677481d9bf9fbc80a070a7fdbd4a64736d7cea883da3b5b73ee");
+  background-size: cover;
+}
+@media only screen and (max-width: 600px) {
+  .signup-cover {
+    display: none;
+  }
+}

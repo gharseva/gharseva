@@ -7,4 +7,7 @@
   .signup-cover {
     display: none;
   }
+  .signup-text {
+    font-size: 18px;
+  }
 }

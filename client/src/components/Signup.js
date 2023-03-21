@@ -149,262 +149,332 @@ function Signup() {
 
   return (
     <>
-      <Container
-        sx={{
-          position: "fixed",
-          top: "50%",
-          left: "50%",
-          webkitTransform: "translate(-50%, -50%)",
-          transform: "translate(-50%, -50%)",
-          fontFamily: "Poppins",
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <Paper elevation={6} sx={{ display: "flex", flexDirection: "row" }}>
-          <div className="signup-cover"></div>
-          <div style={{ flex: "1 1 10%", width: "100%" }}>
-            <Container
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingTop: "20px",
-              }}
-            >
-              <Avatar
-                sx={{
-                  width: 80,
-                  height: 80,
-                  bgcolor: "#007DFE",
-                  boxShadow: "0px 0px 8px rgba(131,153,167,0.99)",
-                }}
-              >
-                <FaceIcon sx={{ fontSize: 70 }} />
-              </Avatar>
-              <h2>Register a new account</h2>
-            </Container>
-            <Stack
-              component="form"
-              onSubmit={handleSubmit}
-              noValidate
-              spacing={3}
-              sx={{
-                bgcolor: "#f5f5f6",
-                padding: "40px",
-                borderBottomRightRadius: "10px",
-                "@media screen and (max-width: 600px)": {
-                  padding: "30px",
-                  borderRadius: "10px",
-                },
-              }}
-            >
-              <TextField
-                sx={{ background: "white" }}
-                variant="filled"
-                type="string"
-                label="Full Name"
-                value={values.name}
-                onChange={handleChange("name")}
-                InputProps={{
-                  sx: {
-                    fontFamily: "Poppins",
-                    "@media screen and (max-width: 600px)": {
-                      fontSize: "15px",
-                    },
-                  },
-                }}
-                InputLabelProps={{
-                  sx: {
-                    fontFamily: "Poppins",
-                    "@media screen and (max-width: 600px)": {
-                      fontSize: "15px",
-                    },
-                  },
-                }}
-                // error={errors.email}
-                // helperText={errors.email && "Please insert a valid email address"}
-              />
-              <TextField
-                sx={{ background: "white" }}
-                variant="filled"
-                type="email"
-                label="Email"
-                value={values.email}
-                onChange={handleChange("email")}
-                error={errors.email}
-                helperText={
-                  errors.email && "Please insert a valid email address"
-                }
-                InputProps={{
-                  sx: {
-                    fontFamily: "Poppins",
-                    "@media screen and (max-width: 600px)": {
-                      fontSize: "15px",
-                    },
-                  },
-                }}
-                InputLabelProps={{
-                  sx: {
-                    fontFamily: "Poppins",
-                    "@media screen and (max-width: 600px)": {
-                      fontSize: "15px",
-                    },
-                  },
-                }}
-              />
-              <TextField
-                sx={{ background: "white" }}
-                variant="filled"
-                type="string"
-                label="Phone Number"
-                value={values.phoneno}
-                onChange={handleChange("phoneno")}
-                InputProps={{
-                  sx: {
-                    fontFamily: "Poppins",
-                    "@media screen and (max-width: 600px)": {
-                      fontSize: "15px",
-                    },
-                  },
-                }}
-                InputLabelProps={{
-                  sx: {
-                    fontFamily: "Poppins",
-                    "@media screen and (max-width: 600px)": {
-                      fontSize: "15px",
-                    },
-                  },
-                }}
-                // error={errors.email}
-                // helperText={errors.email && "Please insert a valid email address"}
-              />
-
-              <FormControl variant="filled">
-                <InputLabel
-                  htmlFor="password-field"
-                  sx={{
-                    fontFamily: "Poppins",
-                    "@media screen and (max-width: 600px)": {
-                      fontSize: "15px",
-                    },
-                  }}
-                >
-                  Password
-                </InputLabel>
-                <FilledInput
-                  sx={{
-                    fontFamily: "poppins",
-                    "@media screen and (max-width: 600px)": {
-                      fontSize: "15px",
-                    },
-                  }}
-                  id="password-field"
-                  type={values.showPassword ? "text" : "password"}
-                  value={values.password}
-                  onChange={handleChange("password")}
-                  error={errors.password}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={() => handleShowPassword("showPassword")}
-                        edge="end"
-                      >
-                        {values.showPassword ? (
-                          <VisibilityOff />
-                        ) : (
-                          <Visibility />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                />
-
-                <FormHelperText error={errors.password}>
-                  Password must be at least 8 characters, have one symbol, 1
-                  uppercase letter, 1 lowercase and 1 digit
-                </FormHelperText>
-              </FormControl>
-
-              <FormControl variant="filled">
-                <InputLabel
-                  htmlFor="password-repeat-field"
-                  sx={{
-                    fontFamily: "poppins",
-                    "@media screen and (max-width: 600px)": {
-                      fontSize: "15px",
-                    },
-                  }}
-                >
-                  Repeat password
-                </InputLabel>
-                <FilledInput
-                  id="password-repeat-field"
-                  type={values.showRepeatPassword ? "text" : "password"}
-                  value={values.repeatPassword}
-                  onChange={handleChange("repeatPassword")}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={() => handleShowPassword("showRepeatPassword")}
-                        edge="end"
-                      >
-                        {values.showRepeatPassword ? (
-                          <VisibilityOff />
-                        ) : (
-                          <Visibility />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                />
-                {errors.repeatPassword && (
-                  <FormHelperText error={errors.repeatPassword}>
-                    Password must be the same as above
-                  </FormHelperText>
-                )}
-              </FormControl>
-              <Box
+        <Container
+        // sx={{
+        //   position: "fixed",
+        //   top: "50%",
+        //   left: "50%",
+        //   webkitTransform: "translate(-50%, -50%)",
+        //   transform: "translate(-50%, -50%)",
+        //   fontFamily: "Poppins",
+        // }}
+        >
+          <Paper elevation={6} sx={{ display: "flex", flexDirection: "row" }}>
+            <div className="signup-cover"></div>
+            <div style={{ flex: "1 1 10%", width: "100%" }}>
+              <Container
                 sx={{
                   display: "flex",
+                  flexDirection: "column",
                   justifyContent: "center",
+                  alignItems: "center",
+                  paddingTop: "20px",
                 }}
               >
-                <Button
-                  variant="contained"
-                  size="large"
-                  type="submit"
+                <Avatar
                   sx={{
-                    minWidth: "100%",
-                    textTransform: "none",
-                    fontFamily: "poppins",
-                    fontSize: "15px",
-                    background: "#007DFE",
-                    fontWeight: "600",
+                    width: 80,
+                    height: 80,
+                    bgcolor: "#007DFE",
+                    boxShadow: "0px 0px 8px rgba(131,153,167,0.99)",
+                    "@media screen and (max-width: 600px)": {
+                      width: 45,
+                      height: 45,
+                    },
                   }}
                 >
-                  Sign up
-                </Button>
-              </Box>
-              {errors.fetchError && (
-                <FormHelperText error>{errors.fetchErrorMsg}</FormHelperText>
-              )}
-              <Divider />
-              <Typography
-                paragraph
-                align="center"
-                sx={{ fontFamily: "poppins" }}
+                  <FaceIcon
+                    sx={{
+                      fontSize: 70,
+                      "@media screen and (max-width: 600px)": {
+                        fontSize: 38,
+                      },
+                    }}
+                  />
+                </Avatar>
+                <h2 className="signup-text" style={{ fontFamily: "Poppins" }}>
+                  Register a new account
+                </h2>
+              </Container>
+              <Stack
+                component="form"
+                onSubmit={handleSubmit}
+                noValidate
+                spacing={2}
+                sx={{
+                  bgcolor: "#f5f5f6",
+                  padding: "40px",
+                  borderBottomRightRadius: "10px",
+                  "@media screen and (max-width: 600px)": {
+                    padding: "30px",
+                    borderRadius: "10px",
+                  },
+                }}
               >
-                Already have an account?{" "}
-                <Link component={RouterLink} to="/" sx={{ color: "#007DFE" }}>
-                  Login here
-                </Link>
-              </Typography>
-            </Stack>
-          </div>
-        </Paper>
-      </Container>
+                <TextField
+                  sx={{ background: "white" }}
+                  variant="filled"
+                  type="string"
+                  label="Full Name"
+                  value={values.name}
+                  onChange={handleChange("name")}
+                  InputProps={{
+                    sx: {
+                      fontFamily: "Poppins",
+                      backgroundColor: "#F5F5F6",
+                      "@media screen and (max-width: 600px)": {
+                        fontSize: "13px",
+                      },
+                    },
+                  }}
+                  InputLabelProps={{
+                    sx: {
+                      fontFamily: "Poppins",
+                      "@media screen and (max-width: 600px)": {
+                        fontSize: "13px",
+                      },
+                    },
+                  }}
+                  // error={errors.email}
+                  // helperText={errors.email && "Please insert a valid email address"}
+                />
+                <TextField
+                  sx={{ background: "white" }}
+                  variant="filled"
+                  type="email"
+                  label="Email"
+                  value={values.email}
+                  onChange={handleChange("email")}
+                  error={errors.email}
+                  helperText={
+                    errors.email && "Please insert a valid email address"
+                  }
+                  InputProps={{
+                    sx: {
+                      fontFamily: "Poppins",
+                      backgroundColor: "#F5F5F6",
+                      "@media screen and (max-width: 600px)": {
+                        fontSize: "13px",
+                      },
+                    },
+                  }}
+                  InputLabelProps={{
+                    sx: {
+                      fontFamily: "Poppins",
+                      "@media screen and (max-width: 600px)": {
+                        fontSize: "13px",
+                      },
+                    },
+                  }}
+                />
+                <TextField
+                  sx={{ background: "white" }}
+                  variant="filled"
+                  type="string"
+                  label="Phone Number"
+                  value={values.phoneno}
+                  onChange={handleChange("phoneno")}
+                  InputProps={{
+                    sx: {
+                      fontFamily: "Poppins",
+                      backgroundColor: "#F5F5F6",
+                      "@media screen and (max-width: 600px)": {
+                        fontSize: "13px",
+                      },
+                    },
+                  }}
+                  InputLabelProps={{
+                    sx: {
+                      fontFamily: "Poppins",
+                      "@media screen and (max-width: 600px)": {
+                        fontSize: "13px",
+                      },
+                    },
+                  }}
+                  // error={errors.email}
+                  // helperText={errors.email && "Please insert a valid email address"}
+                />
+
+                <FormControl variant="filled">
+                  <InputLabel
+                    htmlFor="password-field"
+                    sx={{
+                      fontFamily: "Poppins",
+                      "@media screen and (max-width: 600px)": {
+                        fontSize: "13px",
+                      },
+                    }}
+                  >
+                    Password
+                  </InputLabel>
+                  <FilledInput
+                    sx={{
+                      fontFamily: "poppins",
+                      backgroundColor: "#F5F5F6",
+                      "@media screen and (max-width: 600px)": {
+                        fontSize: "13px",
+                      },
+                    }}
+                    id="password-field"
+                    type={values.showPassword ? "text" : "password"}
+                    value={values.password}
+                    onChange={handleChange("password")}
+                    error={errors.password}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={() => handleShowPassword("showPassword")}
+                          edge="end"
+                        >
+                          {values.showPassword ? (
+                            <VisibilityOff />
+                          ) : (
+                            <Visibility />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                  />
+
+                  <FormHelperText
+                    sx={{
+                      fontFamily: "Poppins",
+                      "@media screen and (max-width: 600px)": {
+                        fontSize: "11px",
+                      },
+                    }}
+                    error={errors.password}
+                  >
+                    Password must be at least 8 characters, have one symbol, 1
+                    uppercase letter, 1 lowercase and 1 digit
+                  </FormHelperText>
+                </FormControl>
+
+                <FormControl variant="filled">
+                  <InputLabel
+                    htmlFor="password-repeat-field"
+                    sx={{
+                      fontFamily: "poppins",
+
+                      "@media screen and (max-width: 600px)": {
+                        fontSize: "13px",
+                      },
+                    }}
+                  >
+                    Repeat password
+                  </InputLabel>
+                  <FilledInput
+                    sx={{
+                      fontFamily: "poppins",
+                      backgroundColor: "#F5F5F6",
+                      "@media screen and (max-width: 600px)": {
+                        fontSize: "13px",
+                      },
+                    }}
+                    id="password-repeat-field"
+                    type={values.showRepeatPassword ? "text" : "password"}
+                    value={values.repeatPassword}
+                    onChange={handleChange("repeatPassword")}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={() =>
+                            handleShowPassword("showRepeatPassword")
+                          }
+                          edge="end"
+                        >
+                          {values.showRepeatPassword ? (
+                            <VisibilityOff />
+                          ) : (
+                            <Visibility />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                  />
+                  {errors.repeatPassword && (
+                    <FormHelperText
+                      sx={{
+                        fontFamily: "Poppins",
+                        "@media screen and (max-width: 600px)": {
+                          fontSize: "11px",
+                        },
+                      }}
+                      error={errors.repeatPassword}
+                    >
+                      Password must be the same as above
+                    </FormHelperText>
+                  )}
+                </FormControl>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    size="large"
+                    type="submit"
+                    sx={{
+                      minWidth: "100%",
+                      textTransform: "none",
+                      fontFamily: "poppins",
+                      fontSize: "15px",
+                      background: "#007DFE",
+                      fontWeight: "600",
+                      "@media screen and (max-width: 600px)": {
+                        fontSize: "13px",
+                      },
+                    }}
+                  >
+                    Sign up
+                  </Button>
+                </Box>
+                {errors.fetchError && (
+                  <FormHelperText error>{errors.fetchErrorMsg}</FormHelperText>
+                )}
+                <Divider />
+                <Typography
+                  paragraph
+                  align="center"
+                  sx={{
+                    fontFamily: "poppins",
+                    "@media screen and (max-width: 600px)": {
+                      fontSize: "13px",
+                    },
+                  }}
+                >
+                  Already have an account?{" "}
+                  <Link
+                    component={RouterLink}
+                    to="/"
+                    sx={{
+                      color: "#007DFE",
+                      "@media screen and (max-width: 600px)": {
+                        fontSize: "13px",
+                      },
+                    }}
+                  >
+                    Login here
+                  </Link>
+                </Typography>
+              </Stack>
+            </div>
+          </Paper>
+        </Container>
+      </div>
     </>
   );
 }

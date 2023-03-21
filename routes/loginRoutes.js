@@ -1,3 +1,4 @@
+require("dotenv").config();
 const UserSchema = require("../models/UserSchema");
 const userSchema1 = require("../models/userSchema1");
 const mechanicsSchema = require("../models/mechanicsSchema");
@@ -24,9 +25,9 @@ router.get(
 passport.use(
   new GoogleStrategy(
     {
-      clientID: `183671736543-9n22e892mn483k4208i1462p52oh95h1.apps.googleusercontent.com`,
-      clientSecret: "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",
-      callbackURL: "http://localhost:5000/api/auth/google/callback",
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: process.env.GOOGLE_CALLBACK_URL,
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
     async function (accessToken, refreshToken, profile, cb) {
@@ -43,14 +44,16 @@ passport.use(
 // Handle Google authentication callback
 router.get(
   "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "http://localhost:3000" }),
+  passport.authenticate("google", {
+    failureRedirect: "https://www.gharseva.in",
+  }),
   async function (req, res) {
     // Successful authentication, set up user session
     const userSession1 = { email: req.user.email };
     req.session.user = userSession1;
     console.log(req.session.user);
 
-    res.redirect("http://localhost:3000/");
+    res.redirect("https://www.gharseva.in/");
   }
 );
 

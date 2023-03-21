@@ -247,7 +247,7 @@ function Login({}) {
               </div>
               {/* google login */}
               <div className="google-login">
-                <form action="http://localhost:5000/api/auth/google">
+                <form action="https://www.gharseva.in/api/auth/google">
                   <button type="submit" className="google-button">
                     <span className="google-button__icon">
                       <svg

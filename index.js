@@ -27,7 +27,7 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     store: new MongoDBStore({
-      uri: "mongodb+srv://ajharul:ajharul1234@cluster0.kzclar0.mongodb.net/?retryWrites=true&w=majority",
+      uri: process.env.MONGODB_URI,
       collection: "mySessions",
     }),
     cookie: {
@@ -84,7 +84,7 @@ app.use(
     secret: "a1s2d3f4g5h6",
     name: "session-id", // cookies name to be put in "key" field in postman
     store: new MongoDBStore({
-      uri: "mongodb+srv://ajharul:ajharul1234@cluster0.kzclar0.mongodb.net/?retryWrites=true&w=majority",
+      uri: process.env.MONGODB_URI,
       collection: "mySessions",
     }),
     cookie: {

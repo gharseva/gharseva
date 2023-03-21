@@ -193,7 +193,10 @@ const Home = () => {
               <span className="website-ani">GharSeva' </span>
               efficient platform.
             </h5>
-            <button className="booknow-button" onClick={() => setIsOpen(true)}>
+            <button
+              className="booknow-button"
+              onClick={() => scrollBottom(scrollRef)}
+            >
               Book Now
             </button>
           </div>

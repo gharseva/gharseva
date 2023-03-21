@@ -133,9 +133,16 @@ function Login({}) {
           left: "50%",
           webkitTransform: "translate(-50%, -50%)",
           transform: "translate(-50%, -50%)",
+          "@media screen and (max-width: 600px)": {
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            webkitTransform: "translate(-50%, -50%)",
+            transform: "translate(-50%, -50%)",
+          },
         }}
       >
-        <Paper elevation={6} sx={{ display: "flex", flexDirection: "row" }}>
+        <Paper elevation={3} sx={{ display: "flex", flexDirection: "row" }}>
           <div className="login-cover" style={{}}></div>
           <div style={{ flex: "1 1 10%", width: "100%" }}>
             <Container
@@ -163,7 +170,7 @@ function Login({}) {
               component="form"
               onSubmit={handleSubmit}
               noValidate
-              spacing={4}
+              spacing={3}
               sx={{
                 bgcolor: "#f5f5f6",
                 padding: "60px",
@@ -247,7 +254,10 @@ function Login({}) {
               </div>
               {/* google login */}
               <div className="google-login">
-                <form action="https://www.gharseva.in/api/auth/google">
+                <form
+                  action="https://www.gharseva.in/api/auth/google"
+                  style={{ width: "100%" }}
+                >
                   <button type="submit" className="google-button">
                     <span className="google-button__icon">
                       <svg

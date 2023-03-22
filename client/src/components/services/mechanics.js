@@ -18,6 +18,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Img7 from "../../assets/chrome.png";
 import MenuIcon from "@mui/icons-material/Menu";
+import Logo from "../../assets/logo.png";
 
 const handleLogout = async (event) => {
   event.preventDefault();
@@ -100,10 +101,14 @@ const Mechanics = () => {
             textTransform: "none",
             textDecoration: "none",
             color: "#000000",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
           to={`/`}
         >
-          <h2 className="brand-name">GharSeva</h2>
+          {/* <h2 className="brand-name">GharSeva</h2> */}
+          <img className="brand-logo" src={Logo} />
         </Link>
         <div className="home-h-div">
           <h3

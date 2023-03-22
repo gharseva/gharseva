@@ -27,6 +27,7 @@ import Img4 from "../assets/hourglass.png";
 import Img5 from "../assets/browser.png";
 import Img6 from "../assets/advertising.png";
 import Img7 from "../assets/chrome.png";
+import Logo from "../assets/logo.png";
 
 const handleLogout = async (event) => {
   event.preventDefault();
@@ -142,7 +143,8 @@ const Home = () => {
       )}
       <div loading="eager" alt="" className="poster">
         <div className="navbar-home">
-          <h2 className="brand-name">GharSeva</h2>
+          {/* <h2 className="brand-name">GharSeva</h2> */}
+          <img className="brand-logo" src={Logo} alt="gg" />
           <div className="home-h-div">
             <h3
               className="home-h"

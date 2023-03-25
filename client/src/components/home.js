@@ -624,7 +624,14 @@ const Home = () => {
                 If you're interested in working with us, please complete this
                 form and we'll be in touch.
               </p>
-              <button className="hw-button">Share your details</button>
+              <button
+                className="hw-button"
+                onClick={() => {
+                  window.open = "https://forms.gle/bqrF2abAmyVbWD3Z6";
+                }}
+              >
+                Share your details
+              </button>
             </div>
             <div>
               <img src={Img5} className="hw-img-1" alt="gg"></img>
@@ -651,7 +658,14 @@ const Home = () => {
                 Want to help others find better employment opportunities? Sign
                 them up as job seekers and earn rewards worth Rs. 100.
               </p>
-              <button className="hw-button-1">Share your details</button>
+              <button
+                className="hw-button-1"
+                onClick={() => {
+                  window.open = "https://forms.gle/dpVKAYdQRZ9d1nDe7";
+                }}
+              >
+                Share your details
+              </button>
             </div>
             <div>
               <img src={Img6} className="hw-img-1" alt="gg"></img>

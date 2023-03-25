@@ -627,7 +627,11 @@ const Home = () => {
               <button
                 className="hw-button"
                 onClick={() => {
-                  window.open = "https://forms.gle/bqrF2abAmyVbWD3Z6";
+                  window.open(
+                    "https://forms.gle/bqrF2abAmyVbWD3Z6",
+                    "_blank",
+                    "noreferrer"
+                  );
                 }}
               >
                 Share your details
@@ -661,7 +665,11 @@ const Home = () => {
               <button
                 className="hw-button-1"
                 onClick={() => {
-                  window.open = "https://forms.gle/dpVKAYdQRZ9d1nDe7";
+                  window.open(
+                    "https://forms.gle/dpVKAYdQRZ9d1nDe7",
+                    "_blank",
+                    "noreferrer"
+                  );
                 }}
               >
                 Share your details

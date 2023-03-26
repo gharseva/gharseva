@@ -32,7 +32,7 @@ function App() {
     <UserContext.Provider value={userSession}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {loading ? <>loading...</> : <Routes />}
+        {loading ? <>LOADING...</> : <Routes />}
       </ThemeProvider>
     </UserContext.Provider>
   );

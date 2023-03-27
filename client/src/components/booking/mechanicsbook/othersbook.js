@@ -36,7 +36,9 @@ const Othersbook = () => {
     settypeodproblem(currentValue4);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent the form from submitting normally
+
     const res = await fetch("/api/mbooking", {
       method: "POST",
       headers: {
@@ -52,7 +54,14 @@ const Othersbook = () => {
       }),
     });
     await res.json();
-    alert("YOur order has been booked");
+    if (res.ok) {
+      alert("Your order has been booked");
+      window.location.href = "/"; // Redirect to home page
+    } else {
+      const error = await res.json();
+      alert("There was some error. Fill the form again.");
+      window.location.reload();
+    }
   };
   return (
     <>

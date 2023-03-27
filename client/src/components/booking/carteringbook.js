@@ -31,7 +31,9 @@ const Carteringbook = () => {
     setUserPhoneno(currentValue4);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent the form from submitting normally
+
     const res = await fetch("/api/cbooking", {
       method: "POST",
       headers: {
@@ -47,7 +49,14 @@ const Carteringbook = () => {
       }),
     });
     await res.json();
-    alert("Your order has been booked");
+    if (res.ok) {
+      alert("Your order has been booked");
+      window.location.href = "/"; // Redirect to home page
+    } else {
+      const error = await res.json();
+      alert("There was some error. Fill the form again.");
+      window.location.reload();
+    }
   };
   return (
     <>

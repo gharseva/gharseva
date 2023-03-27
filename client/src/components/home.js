@@ -28,6 +28,10 @@ import Img5 from "../assets/browser.png";
 import Img6 from "../assets/advertising.png";
 import Img7 from "../assets/chrome.png";
 import Logo from "../assets/logo.png";
+import cateringimg from "../assets/cateringimg.jpeg";
+import mechimg from "../assets/mechimg.jpeg";
+import holdimg from "../assets/holdimg.jpeg";
+import otherimg from "../assets/otherimg.jpeg";
 
 const handleLogout = async (event) => {
   event.preventDefault();
@@ -305,10 +309,7 @@ const Home = () => {
               <div class="box">
                 <div className="service-1">
                   {/* <div className="service-img"> */}
-                  <img
-                    src="https://cdn-cleni.nitrocdn.com/nysjMmLwIemaLNoTuceborTssnvQAedj/assets/images/optimized/rev-077c865/wp-content/uploads/2019/03/about-section.jpg"
-                    className="service-img"
-                  ></img>
+                  <img src={mechimg} className="service-img"></img>
                   {/* </div> */}
                   <div className="service-1-content">
                     Vehicle Mechanics
@@ -316,7 +317,7 @@ const Home = () => {
                       Fix your broken-down vehicle quickly with our home vehicle
                       repair service <br />
                       <br />
-                      <a href="www.google.com">See More..</a>
+                      <a href="/mechanics">See More..</a>
                     </p>
                   </div>
                 </div>
@@ -324,10 +325,7 @@ const Home = () => {
               <div class="box-1">
                 <div className="service-1">
                   {/* <div className="service-img"> */}
-                  <img
-                    src="https://cdn-cleni.nitrocdn.com/nysjMmLwIemaLNoTuceborTssnvQAedj/assets/images/optimized/rev-077c865/wp-content/uploads/2019/03/about-section.jpg"
-                    className="service-img"
-                  ></img>
+                  <img src={cateringimg} className="service-img"></img>
                   {/* </div> */}
                   <div className="service-1-content">
                     Catering Services
@@ -335,7 +333,7 @@ const Home = () => {
                       Make your event unforgettable with our top-notch catering
                       service. <br />
                       <br />
-                      <a href="www.google.com">See More..</a>
+                      <a href="/catering">See More..</a>
                     </p>
                   </div>
                 </div>
@@ -343,17 +341,14 @@ const Home = () => {
               <div class="box-2">
                 <div className="service-1">
                   {/* <div className="service-img"> */}
-                  <img
-                    src="https://cdn-cleni.nitrocdn.com/nysjMmLwIemaLNoTuceborTssnvQAedj/assets/images/optimized/rev-077c865/wp-content/uploads/2019/03/about-section.jpg"
-                    className="service-img"
-                  ></img>
+                  <img src={holdimg} className="service-img"></img>
                   {/* </div> */}
                   <div className="service-1-content">
                     Household Services
                     <p className="para-service-1">
                       Book our professional household service for a clean and
                       tidy home with ease. <br /> <br />
-                      <a href="www.google.com">See More..</a>
+                      <a href="/household">See More..</a>
                     </p>
                   </div>
                 </div>
@@ -361,10 +356,7 @@ const Home = () => {
               <div class="box-3">
                 <div className="service-1">
                   {/* <div className="service-img"> */}
-                  <img
-                    src="https://cdn-cleni.nitrocdn.com/nysjMmLwIemaLNoTuceborTssnvQAedj/assets/images/optimized/rev-077c865/wp-content/uploads/2019/03/about-section.jpg"
-                    className="service-img"
-                  ></img>
+                  <img src={otherimg} className="service-img"></img>
                   {/* </div> */}
                   <div className="service-1-content">
                     Other Services
@@ -372,7 +364,7 @@ const Home = () => {
                       Other Services to be add soon. We will keep you updated
                       when a new service is added <br />
                       <br />
-                      <a href="www.google.com">See More..</a>
+                      <a href="/otherservices">See More..</a>
                     </p>
                   </div>
                 </div>

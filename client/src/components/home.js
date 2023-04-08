@@ -43,6 +43,18 @@ const handleLogout = async (event) => {
 };
 
 const Home = () => {
+  // prompt for webapp download
+  useEffect(() => {
+    if (
+      "onbeforeinstallprompt" in window &&
+      /Android/i.test(navigator.userAgent)
+    ) {
+      window.addEventListener("beforeinstallprompt", (e) => {
+        console.log("Before install prompt fired!");
+      });
+    }
+  }, []);
+
   const [isShown, setIsShown] = useState(false);
   const [faqisShown, setFaqIsShown] = useState(false);
   const [faqisShown1, setFaqIsShown1] = useState(false);

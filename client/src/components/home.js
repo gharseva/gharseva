@@ -44,11 +44,32 @@ const handleLogout = async (event) => {
 
 const Home = () => {
   // prompt for webapp download
+  // State to track the display of the "Add to Home Screen" button
+  const [showAddToHomeScreen, setShowAddToHomeScreen] = useState(false);
+
+  // useEffect to listen for the beforeinstallprompt event
   useEffect(() => {
-    window.addEventListener("beforeinstallprompt", (e) => {
-      console.log("Before install prompt fired!");
-    });
+    const handleBeforeInstallPrompt = (event) => {
+      event.preventDefault();
+      setShowAddToHomeScreen(true);
+    };
+
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt
+      );
+    };
   }, []);
+
+  // Function to handle the "Add to Home Screen" button click
+  const handleAddToHomeScreen = () => {
+    const promptEvent = new Event("beforeinstallprompt");
+    window.dispatchEvent(promptEvent);
+  };
 
   const [isShown, setIsShown] = useState(false);
   const [faqisShown, setFaqIsShown] = useState(false);
@@ -684,10 +705,18 @@ const Home = () => {
       {/* Footer starts */}
       <div className="footer-div">
         <div className="footer-inner-div">
-          <h1 style={{ color: "#fff", fontFamily: "Montserrat" }}>
+          <h1
+            style={{ color: "#fff", fontFamily: "Montserrat" }}
+            onClick={handleAddToHomeScreen}
+          >
             GET OUR WEB APP
           </h1>
-          <img src={Img7} alt="" className="footer-icon" />
+          <img
+            src={Img7}
+            alt=""
+            className="footer-icon"
+            onClick={handleAddToHomeScreen}
+          />
         </div>
         <div className="footer-inner-div-1">
           <div className="footer-extra-fm" style={{ flex: "1" }}>
